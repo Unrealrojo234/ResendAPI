@@ -28,6 +28,7 @@ app.get("/send/:email/:msg/:name", async (req, res) => {
       subject: "Applicant",
       html: `
       <h1 style='text-align:center;color:rebeccapurple;'>New Job Applicant</h1>
+      <p>Name: ${name},</p>
       <h3>Message</h3>
       <p>${msg}</p>
       <a target_='blank' href="mailto:${email}">Sender Email</a>
