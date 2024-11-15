@@ -4,6 +4,7 @@ const app = express();
 require("dotenv").config();
 
 const resendApiKey = process.env.API_KEY;
+const recepientEmail = process.env.RECEPIENT_EMAIL;
 
 const resend = new Resend(resendApiKey);
 
@@ -23,13 +24,13 @@ app.get("/send/:email/:msg/:name", async (req, res) => {
   try {
     const { data, error } = await resend.emails.send({
       from: "Rojo's Ltd <onboarding@resend.dev>",
-      to: ["otienoryan812@gmail.com"],
+      to: [recepientEmail],
       subject: "Applicant",
       html: `
       <h1 style='text-align:center;color:rebeccapurple;'>New Job Applicant</h1>
       <h3>Message</h3>
       <p>${msg}</p>
-      <a href="mailto:${email}">Sender Email</a>
+      <a target_='blank' href="mailto:${email}">Sender Email</a>
       `,
     });
 
