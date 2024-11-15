@@ -7,6 +7,16 @@ const resendApiKey = process.env.API_KEY;
 
 const resend = new Resend(resendApiKey);
 
+app.get("/", (req, res) => {
+  res.send(
+    `
+      <h1 style="text-align:center;color:purple;">Resend Api Server</h1>
+      <p>This server enables you to intagrate emails to your websites</p>
+      <a href="https://github.com/Unrealrojo234/ResendAPI">Repository</a>
+      `
+  );
+});
+
 app.get("/send/:email/:msg/:name", async (req, res) => {
   const { email, msg, name } = req.params;
 
