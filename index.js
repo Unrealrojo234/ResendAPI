@@ -24,7 +24,7 @@ app.get("/send/:email/:msg/:name", async (req, res) => {
   try {
     const { data, error } = await resend.emails.send({
       from: "Rojo's Ltd <onboarding@resend.dev>",
-      to: [recepientEmail],
+      to: [`${recepientEmail}`],
       subject: "Applicant",
       html: `
       <h1 style='text-align:center;color:rebeccapurple;'>New Job Applicant</h1>
